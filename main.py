@@ -16,6 +16,7 @@ class WebScraper:
     def __init__(self, driver_path, website_url, num_pages, db_file):
         self.options = Options()
         self.options.add_argument("--headless")
+        self.options.add_argument("--no-sandbox")
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=self.options)
         self.website_url = website_url
         self.num_pages = num_pages
