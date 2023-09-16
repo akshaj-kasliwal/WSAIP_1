@@ -20,6 +20,7 @@ class WebScraper:
         self.options.add_argument("--no-sandbox")
         self.options.add_argument("--disable-dev-shm-usage")
         self.options.add_argument("disable-infobars")
+        self.options.add_argument("--remote-debugging-port=9222")
 
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
         self.website_url = website_url
