@@ -117,7 +117,7 @@ if __name__ == "__main__":
     driver_path = "./chromedriver.exe"
     website_url = 'https://playgroundai.com/feed'
     num_pages = 20000  # Number of pages to scrape
-    db_file = r"Webscrape (2).accdb"  # Replace with your Access database file path
+    db_file = r"db.accdb"  # Replace with your Access database file path
 
     scraper = WebScraper(driver_path, website_url, num_pages, db_file)
     scraper.extract_data()
