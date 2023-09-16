@@ -18,6 +18,7 @@ class WebScraper:
         self.options = Options()
         self.options.add_argument("--headless")
         self.options.add_argument("--no-sandbox")
+        self.options.add_argument("--disable-dev-shm-usage")
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
         self.website_url = website_url
         self.num_pages = num_pages
