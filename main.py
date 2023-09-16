@@ -22,7 +22,7 @@ class WebScraper:
         self.options.add_argument("disable-infobars")
         self.options.add_argument("--remote-debugging-port=9222")
         self.options.binary_location = '/opt/google/chrome/google-chrome'
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
+        self.driver = webdriver.Chrome(options=self.options)
         self.website_url = website_url
         self.num_pages = num_pages
         self.db_file = db_file
