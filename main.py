@@ -12,12 +12,13 @@ import pyodbc
 
 start_time = datetime.datetime.now()
 
+
 class WebScraper:
-    def __init__(self, driver_path, website_url, num_pages, db_file):
+    def __init__(self, website_url, num_pages, db_file):
         self.options = Options()
         self.options.add_argument("--headless")
         self.options.add_argument("--no-sandbox")
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=self.options)
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
         self.website_url = website_url
         self.num_pages = num_pages
         self.db_file = db_file
@@ -107,6 +108,7 @@ class WebScraper:
             if self.conn:
                 self.conn.close()
 
+
 def noteTime(page_number):
     current_time = datetime.datetime.now()
     elapsed_time = current_time - start_time
@@ -114,11 +116,12 @@ def noteTime(page_number):
     speed = "-"  # Calculate the speed (you can uncomment this line and calculate it if needed)
     print(f"Page {page_number + 1} - Time elapsed: {formatted_time} Speed - {speed} img/sec")
 
+
 if __name__ == "__main__":
     driver_path = "./chromedriver.exe"
     website_url = 'https://playgroundai.com/feed'
     num_pages = 20000  # Number of pages to scrape
     db_file = r"db.accdb"  # Replace with your Access database file path
 
-    scraper = WebScraper(driver_path, website_url, num_pages, db_file)
+    scraper = WebScraper(website_url, num_pages, db_file)
     scraper.extract_data()
