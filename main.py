@@ -21,7 +21,7 @@ class WebScraper:
         self.options.add_argument("--disable-dev-shm-usage")
         self.options.add_argument("disable-infobars")
         self.options.add_argument("--remote-debugging-port=9222")
-        self.options.binary_location = '/usr/bin/google-chrome'
+        self.options.binary_location = '/opt/google/chrome/google-chrome'
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
         self.website_url = website_url
         self.num_pages = num_pages
